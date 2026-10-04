@@ -19,16 +19,36 @@ A native [Yazi](https://github.com/sxyazi/yazi) plugin to manage, mount, and nav
 
 ## Dependencies
 
-- **`gocryptfs`**: The FUSE-based cryptographic filesystem.
-- **`fusermount`** (part of `fuse` / `fuse3`).
+This plugin requires **`gocryptfs`** and **`fuse`** (`fusermount`):
 
-On **NixOS**, add them to your `configuration.nix` or `home.nix`:
+### Arch Linux / Manjaro
+```bash
+sudo pacman -S gocryptfs fuse3
+```
 
+### Ubuntu / Debian / Pop!_OS / Linux Mint
+```bash
+sudo apt install gocryptfs fuse3
+```
+
+### Fedora / RHEL
+```bash
+sudo dnf install gocryptfs fuse3
+```
+
+### NixOS
+Add to `configuration.nix` or `home.nix`:
 ```nix
 environment.systemPackages = with pkgs; [
   gocryptfs
   fuse
 ];
+```
+
+### macOS (via Homebrew)
+```bash
+brew install --cask macfuse
+brew install gocryptfs
 ```
 
 ---
